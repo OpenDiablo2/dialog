@@ -9,10 +9,13 @@ package dialog
 // static GtkWidget* filedlg(char *title, GtkWindow *parent, GtkFileChooserAction action, char* acceptText) {
 // 	return gtk_file_chooser_dialog_new(title, parent, action, "Cancel", GTK_RESPONSE_CANCEL, acceptText, GTK_RESPONSE_ACCEPT, NULL);
 // }
+// #cgo pkg-config: x11
+// #include <X11/Xlib.h>
 import "C"
 import "unsafe"
 
 func Init() {
+	C.XInitThreads()
 	C.gtk_init(nil, nil)
 }
 
